@@ -51,6 +51,10 @@ th {
 
 
 /* Data table */
+.container-fluid.dataTables_wrapper {
+  max-width: 100%;
+  padding: 0;
+}
 div.dt-button-info {
   background-color: $custom;
   border: none;
@@ -202,9 +206,9 @@ table.dataTable>tbody>tr.child span.dtr-title {
     color: $white;
     border-color: $custom;
   }
-  //.sticky-table-header.fixed-solution {
-  //  top: 70px !important;
-  //}
+  .sticky-table-header.fixed-solution {
+   top: 120px !important;
+  }
   .btn-default {
     background-color: $white;
     border: 1px solid rgba($dark, 0.3);

@@ -1,5 +1,5 @@
 /**
-* Theme: Highdmin - Responsive Bootstrap 4 Admin Dashboard
+* Theme: Highdmin - Bootstrap 4 Web App kit
 * Author: Coderthemes
 * Module/App: Core js
 */
