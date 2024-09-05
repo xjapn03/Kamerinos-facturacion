@@ -1,102 +1,123 @@
 <?php
-require_once 'db/Database.php'; // Incluye la conexión a la base de datos
 
-class empleado {
-    private $conn;
-    private $table_name = "empleados";
-    public $id_empleado;
-    public $nombre;
-    public $apellido;
-    public $telefono;
-    public $email;
-    public $direccion;
-    public $fecha_registro;
-    public $fecha_nacimiento;
-    public $documento_contrato;
+class EmpleadoModel {
+    private $id;
+    private $nombre;
+    private $apellido;
+    private $email;
+    private $password;
+    private $id_rol;
+    private $nombre_rol;
+    private $pdo;
 
-    public function __construct($db) {
-        $this->conn = $db;
+    public function __construct()
+    {
+    	try {
+    		$this->pdo = new Database;
+	    } catch (PDOException $e) {
+	    	die($e->getMessage());
+	    }    
     }
+
+
+// Método para obtener todos los empleados
+public function getAll()
+{
+    try {    		
+        $strSql = "SELECT empleados.nombre, empleados.email, roles.nombre_rol as nombre_rol
+                    FROM empleados
+                    INNER JOIN roles ON empleados.id_rol = roles.id_rol";
+        
+        $stmt = $this->pdo->query($strSql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve todos los resultados como array asociativo
+    } catch (PDOException $e) {
+        die($e->getMessage());
+    }
+}
+
 
     // Método para verificar el login de un empleado
-    public function login($email, $password) {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email LIMIT 1";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+    public function validacion($data)
+    {
+        try {            
+            $strSql = "SELECT * FROM empleados
+                        INNER JOIN roles ON empleados.id_rol=roles.id_rol
+                        WHERE email='".$data['email']."' AND password='".md5($data['password'])."'";
+            //$user= $this->pdo->select($strSql);
+            //$LoginId=$user[0]->idUsers;
+            //$Login=1;
+            //$array = json_decode(json_encode($user), true);
+            //echo ($strSql);
+            //print_r ($array[0]);
+            //print_r($_SESSION);
+            //die();
+            return $this->pdo->select($strSql);
 
-        if ($stmt->rowCount() > 0) {
-            $empleado = $stmt->fetch(PDO::FETCH_ASSOC);
-            // Verifica la contraseña cifrada
-            if (password_verify($password, $empleado['password'])) {
-                // Obtener el rol del empleado
-                $id_rol = $this->getRole($empleado['id_empleado']);
-                $empleado['rol'] = $id_rol;
-                return $empleado;
-            }
+        } catch (PDOException $e) {
+            die($e->getMessage());
         }
-        return false;
     }
 
-    // Método para obtener el rol de un empleado
-    private function getRole($id_empleado) {
-        $query = "SELECT r.nombre FROM roles AS r 
-                  JOIN roles_empleados AS re ON r.id_rol = re.id_rol 
-                  WHERE re.id_empleado = :id_empleado";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id_empleado', $id_empleado);
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            $role = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $role['nombre'];
+    // Método para obtener un empleado por ID
+    public function getById($id)
+    {
+        try {            
+            $strSql = "SELECT * FROM empleados WHERE id_empleado = :id";
+            $stmt = $this->pdo->prepare($strSql);
+            $stmt->execute(['id' => $id]);            
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die($e->getMessage());
         }
-        return null;
-    }
-
-    // Método para obtener todos los empleados
-    public function getEmpleados() {
-        $query = "SELECT * FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
     }
 
     // Método para registrar un nuevo empleado
-    public function register($nombre, $apellido, $telefono, $email, $direccion, $fecha_nacimiento, $password, $id_rol) {
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-        $query = "INSERT INTO " . $this->table_name . " (nombre, apellido, telefono, email, direccion, fecha_nacimiento, password) 
-                  VALUES (:nombre, :apellido, :telefono, :email, :direccion, :fecha_nacimiento, :password)";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':apellido', $apellido);
-        $stmt->bindParam(':telefono', $telefono);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':direccion', $direccion);
-        $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
-        $stmt->bindParam(':password', $hashed_password);
-
+    public function newUser($data)
+    {   
         try {
-            $stmt->execute();
-            // Obtener el ID del nuevo empleado
-            $id_empleado = $this->conn->lastInsertId();
-            // Asociar el empleado con el rol
-            $this->assignRole($id_empleado, $id_rol);
-            return true;
-        } catch (PDOException $e) {
-            // Maneja el error (log, mostrar mensaje al usuario, etc.)
-            echo "Error al registrar empleado: " . $e->getMessage();
-            return false;
+            $data['password'] = md5($data['password']);
+            $sql = "INSERT INTO empleados (nombre, apellido, email, password, id_rol) VALUES (:nombre, :apellido, :email, :password, :id_rol)";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
+                'nombre' => $data['nombre'],
+                'apellido' => $data['apellido'],
+                'email' => $data['email'],
+                'password' => $data['password'],
+                'id_rol' => $data['id_rol']
+            ]);
+        } catch(PDOException $e) {
+            die($e->getMessage());
         }
     }
 
-    // Método para asignar un rol a un empleado
-    private function assignRole($id_empleado, $id_rol) {
-        $query = "INSERT INTO roles_empleados (id_empleado, id_rol) VALUES (:id_empleado, :id_rol)";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id_empleado', $id_empleado);
-        $stmt->bindParam(':id_rol', $id_rol);
-        $stmt->execute();
+    // Método para editar un empleado
+    public function editUser($data)
+    {
+        try {      
+            $strSql = "UPDATE empleados SET nombre = :nombre, apellido = :apellido, email = :email, id_rol = :id_rol WHERE id_empleado = :id_empleado";
+            $stmt = $this->pdo->prepare($strSql);
+            $stmt->execute([
+                'nombre' => $data['nombre'],
+                'apellido' => $data['apellido'],
+                'email' => $data['email'],
+                'id_rol' => $data['id_rol'],
+                'id_empleado' => $data['id_empleado']
+            ]);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }    
+    }
+
+    // Método para eliminar un empleado
+    public function deleteUser($id)
+    {
+        try {            
+            $strSql = "DELETE FROM empleados WHERE id_empleado = :id";
+            $stmt = $this->pdo->prepare($strSql);
+            $stmt->execute(['id' => $id]);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }    
     }
 }
 ?>

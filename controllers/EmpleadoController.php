@@ -1,91 +1,63 @@
 <?php
 session_start();
-require_once 'db/database.php';
-require_once 'models/EmpleadoModel.php'; // Incluye el modelo Empleado
+require 'models/EmpleadoModel.php';
 
 class EmpleadoController {
-    private $model;
+    private $empleadoModel;
 
     public function __construct($db) {
-        $this->model = new empleado($db);
+        $this->empleadoModel = new EmpleadoModel($db);
     }
 
-    public function index() {
-        require_once 'views/Auth/login.php';
+    public function index()
+    {
+    	$users = $this->empleadoModel->getAll();
+    	require 'views/layout.php';
+    	require 'views/Empleado/list.php';    	
     }
 
-    public function home() {
-        if (isset($_POST['email']) && isset($_POST['password'])) {
-            // Asegúrate de que la función de validación devuelva los datos correctos
-            $user = $this->model->login($_POST['email'], $_POST['password']);
-            if ($user) {
-                // Configura las variables de sesión
-                $_SESSION["id_empleado"] = $user['id_empleado'];
-                $_SESSION["id_rol"] = $this->model->getRole($user['id_empleado']); // Asegúrate de que getRole devuelva el ID del rol
-                $_SESSION["nombre_rol"] = $user['rol']; // Asegúrate de que 'rol' esté definido correctamente
-                $_SESSION["nombre"] = $user['nombre'];
-                $_SESSION["apellido"] = $user['apellido'];
-                $_SESSION["telefono"] = $user['telefono'];
-                $_SESSION["email"] = $user['email'];
-                $_SESSION["OK"] = 1;
-
-                require 'views/layout.php';
-                require 'views/home.php';
-            } else {
-                // Manejo de error de login
-                $_SESSION["id_empleado"] = 0;
-                $_SESSION["OK"] = 0;
-
-                require 'views/Auth/login.php';
-            }
-        } else {
-            require '../views/Auth/login.php';
-        }
+    public function new()
+    {
+        require 'views/layout.php';
+        require 'views/Empleado/new.php';    
     }
 
-    public function inicio() {
-        if (isset($_SESSION["OK"]) && $_SESSION["OK"] == 1) {
+    public function save()
+    {    
+        //echo "hola";
+        //print_r($_POST);
+        //die();    
+        $this->empleadoModel->newUser($_POST);
+        header('Location: ?controller=empleado');
+    }
+
+    public function edit()
+    {
+        if(isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
+
+            $user = $this->empleadoModel->getById($id);
+
             require 'views/layout.php';
-            require 'views/home.php';
+            require 'views/Empleado/edit.php';
         } else {
-            require 'views/Auth/login.php';
+            echo "El Usuario No Existe";
         }
     }
 
-    public function salir() {
-        // Limpia las variables de sesión
-        $_SESSION = array();
-        session_destroy();
+    public function update()
+    {
+        if(isset($_POST)) {
+            $this->empleadoModel->editUser($_POST);
+            header('Location: ?controller=empleado');
+        } else {
+            echo "Error, acción no permitida.";    
+        }
+    }
 
-        require 'views/Auth/login.php';     
+    public function delete()
+    {        
+        $this->empleadoModel->deleteUser($_REQUEST);
+        header('Location: ?controller=empleado');
     }
 }
-
-// Maneja la acción de la URL
-if (isset($_GET['action'])) {
-    $action = $_GET['action'];
-} else {
-    $action = 'index'; // Acción por defecto
-}
-
-$database = new Database();
-$db = $database->getConnection();
-$controller = new EmpleadoController($db);
-
-// Ejecuta la acción correspondiente
-switch ($action) {
-    case 'home':
-        $controller->home();
-        break;
-    case 'inicio':
-        $controller->inicio();
-        break;
-    case 'salir':
-        $controller->salir();
-        break;
-    default:
-        $controller->index();
-        break;
-}
-?>
-

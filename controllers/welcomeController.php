@@ -1,17 +1,17 @@
 <?php
 session_start();
-require 'models/empleadoModel.php';
+require_once 'models/EmpleadoModel.php';
 
 /**
 * Clase Controlador de Bienvenida
 **/
-class welcomeController
+class WelcomeController
 {
-    private $userModel;	
+    private $empleadoModel;    
 
     public function __construct()
     {
-   		$this->userModel = new UserModel;    
+        $this->empleadoModel = new EmpleadoModel();    
     }
 
     /**
@@ -19,28 +19,26 @@ class welcomeController
      */
     public function index()
     {
-        require 'views/welcome.php';
+        require 'views/Auth/login.php';
     }
 
-
+    
     public function home()
     {
       
-        $user=$this->userModel->validacion($_POST);
-        if( isset($user[0]->idUsers) ){
-                $_SESSION["idUsers"]=$user[0]->idUsers;
-                $_SESSION["rol_id"]=$user[0]->rol_id;
-                $_SESSION["rol_name"]=$user[0]->rol_name;
-                $_SESSION["name"]=$user[0]->name;
-                $_SESSION["idruta"]=$user[0]->idruta;
-                $_SESSION["ID_CC"]=$user[0]->ID_CC;
-                $_SESSION["tbldocumid"]=$user[0]->tbldocumid;
+        $user=$this->empleadoModel->validacion($_POST);
+        if( isset($user[0]->id_empleado) ){
+                $_SESSION["id_empleado"]=$user[0]->id_empleado;
+                $_SESSION["id_rol"]=$user[0]->id_rol;
+                $_SESSION["nombre_rol"]=$user[0]->nombre_rol;
+                $_SESSION["nombre"]=$user[0]->nombre;
+                $_SESSION["apellido"]=$user[0]->apellido;
                 $_SESSION["OK"]=1;
             require 'views/layout.php';
             require 'views/home.php';
         }else{
-            require 'views/welcome.php';
-            $_SESSION["idUsers"]=0;
+            require 'views/Auth/login.php';
+            $_SESSION["id_empleado"]=0;
             $_SESSION["OK"]=0;
         }
     	
@@ -48,18 +46,21 @@ class welcomeController
 
     public function inicio()
     {
-        if( $_SESSION["OK"]==1 ) {
+        if ($_SESSION["OK"] == 1) {
             require 'views/layout.php';
             require 'views/home.php';
-        }else{
-            require 'views/welcome.php';
-        }   	
+        } else {
+            require 'views/Auth/login.php';
+        }
     }
 
     public function salir()
     {
-        $_SESSION["idUsers"]=0;
-        $_SESSION["OK"]=0;
-        require 'views/welcome.php';    	
+        // Limpia las variables de sesión
+        $_SESSION["id_empleado"] = 0;
+        $_SESSION["OK"] = 0;
+
+        require 'views/Auth/logout.php';     
     }
 }
+?>

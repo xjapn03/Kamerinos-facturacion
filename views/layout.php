@@ -2,21 +2,21 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Highdmin - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>FAC - Kamerinos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="../assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <!-- App css -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
-        <script src="../assets/js/modernizr.min.js"></script>
+        <script src="assets/js/modernizr.min.js"></script>
 
     </head>
 
@@ -36,8 +36,8 @@
                         </a> -->
                         <!-- Image Logo -->
                         <a href="index.html" class="logo">
-                            <img src="../assets/images/logo_sm.png" alt="" height="26" class="logo-small">
-                            <img src="../assets/images/logo.png" alt="" height="22" class="logo-large">
+                            <img src="assets/images/logo_sm.png" alt="" height="26" class="logo-small">
+                            <img src="assets/images/logo.png" alt="" height="22" class="logo-large">
                         </a>
 
                     </div>
@@ -164,35 +164,35 @@
                                     <div class="slimscroll" style="max-height: 230px;">
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="../assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                            <div class="notify-icon"><img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Cristina Pride</p>
                                             <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
                                         </a>
 
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="../assets/images/users/avatar-3.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                            <div class="notify-icon"><img src="assets/images/users/avatar-3.jpg" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Sam Garret</p>
                                             <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
                                         </a>
 
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="../assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                            <div class="notify-icon"><img src="assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Karen Robinson</p>
                                             <p class="text-muted font-13 mb-0 user-msg">Wow that's great</p>
                                         </a>
 
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="../assets/images/users/avatar-5.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                            <div class="notify-icon"><img src="assets/images/users/avatar-5.jpg" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Sherry Marshall</p>
                                             <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
                                         </a>
 
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="../assets/images/users/avatar-6.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                            <div class="notify-icon"><img src="assets/images/users/avatar-6.jpg" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Shawn Millard</p>
                                             <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
                                         </a>
@@ -209,7 +209,7 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="../assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1 pro-user-name">Maxine K <i class="mdi mdi-chevron-down"></i> </span>
+                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1 pro-user-name">Maxine K <i class="mdi mdi-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <!-- item-->
@@ -233,13 +233,8 @@
                                     </a>
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-lock"></i> <span>Lock Screen</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="Auth/login.php" class="dropdown-item notify-item">
-                                        <i class="fi-power"></i> <span>Logout</span>
+                                    <a href="?controller=welcome&method=salir" class="dropdown-item notify-item">
+                                        <i class="fi-power"></i> <span>Cerrar sesion</span>
                                     </a>
 
                                 </div>
@@ -452,43 +447,43 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        2018 © Highdmin. - Coderthemes.com
+                        2024 © Kamerinos by Sandra Pinzon. <!-- <br> Coded by Juan Peraza, te amo mamá. -->
                     </div>
                 </div>
             </div>
         </footer>
-        <!-- End Footer -->
+        <!-- End Footer <br> Coded by Juan Peraza, te amo mamá. -->
 
 
         <!-- jQuery  -->
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/waves.js"></script>
-        <script src="../assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
 
         <!-- Flot chart -->
-        <script src="../plugins/flot-chart/jquery.flot.min.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.time.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.tooltip.min.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.resize.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.pie.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.crosshair.js"></script>
-        <script src="../plugins/flot-chart/curvedLines.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.axislabels.js"></script>
+        <script src="plugins/flot-chart/jquery.flot.min.js"></script>
+        <script src="plugins/flot-chart/jquery.flot.time.js"></script>
+        <script src="plugins/flot-chart/jquery.flot.tooltip.min.js"></script>
+        <script src="plugins/flot-chart/jquery.flot.resize.js"></script>
+        <script src="plugins/flot-chart/jquery.flot.pie.js"></script>
+        <script src="plugins/flot-chart/jquery.flot.crosshair.js"></script>
+        <script src="plugins/flot-chart/curvedLines.js"></script>
+        <script src="plugins/flot-chart/jquery.flot.axislabels.js"></script>
 
         <!-- KNOB JS -->
         <!--[if IE]>
-        <script type="text/javascript" src="../plugins/jquery-knob/excanvas.js"></script>
+        <script type="text/javascript" src="plugins/jquery-knob/excanvas.js"></script>
         <![endif]-->
-        <script src="../plugins/jquery-knob/jquery.knob.js"></script>
+        <script src="plugins/jquery-knob/jquery.knob.js"></script>
 
         <!-- Dashboard Init -->
-        <script src="../assets/pages/jquery.dashboard.init.js"></script>
+        <script src="assets/pages/jquery.dashboard.init.js"></script>
 
         <!-- App js -->
-        <script src="../assets/js/jquery.core.js"></script>
-        <script src="../assets/js/jquery.app.js"></script>
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
 
     </body>
 </html>
