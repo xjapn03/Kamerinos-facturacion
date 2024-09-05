@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/formato.png">
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -23,7 +23,7 @@
     <body>
 
         <!-- Begin page -->
-        <div class="accountbg" style="background: url('assets/images/bg-1.jpg');background-size: cover;"></div>
+        <div class="accountbg" style="background: url('assets/images/fondo.jpg');background-size: cover;"></div>
 
         <div class="wrapper-page account-page-full">
 
@@ -35,23 +35,23 @@
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
                                 <a href="index.html" class="text-success">
-                                    <span><img src="assets/images/logo.png" alt="" height="26"></span>
+                                    <span><img src="assets/images/sandra.svg" alt="" height="120"></span>
                                 </a>
                             </h2>
 
                             <form action="?controller=Welcome&method=home" method="POST">
                                 <div class="form-group m-b-20 row">
                                     <div class="col-12">
-                                        <label for="email">Email address</label>
-                                        <input class="form-control" type="email" id="email" name="email" required placeholder="Enter your email">
+                                        <label for="email">Usuario</label>
+                                        <input class="form-control" type="email" id="email" name="email" required placeholder="">
                                     </div>
                                 </div>
 
                                 <div class="form-group row m-b-20">
                                     <div class="col-12">
-                                        <a href="page-recoverpw.html" class="text-muted pull-right"><small>Forgot your password?</small></a>
-                                        <label for="password">Password</label>
-                                        <input class="form-control" type="password" id="password" name="password" required placeholder="Enter your password">
+                                        <!--<a href="page-recoverpw.html" class="text-muted pull-right"><small>Olvidaste la?</small></a>-->
+                                        <label for="password">Contraseña</label>
+                                        <input class="form-control" type="password" id="password" name="password" required placeholder="">
                                     </div>
                                 </div>
 
@@ -60,7 +60,7 @@
                                         <div class="checkbox checkbox-custom">
                                             <input id="remember" type="checkbox" checked>
                                             <label for="remember">
-                                                Remember me
+                                                Recuerdame
                                             </label>
                                         </div>
                                     </div>
@@ -68,14 +68,14 @@
 
                                 <div class="form-group row text-center m-t-10">
                                     <div class="col-12">
-                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign In</button>
+                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Iniciar sesion</button>
                                     </div>
                                 </div>
                             </form>
 
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-dark m-l-5"><b>Sign Up</b></a></p>
+                                    <p class="text-muted">¿No tienes cuenta? <a href="page-register.html" class="text-dark m-l-5"><b>Solicitala</b></a></p>
                                 </div>
                             </div>
 
@@ -86,7 +86,7 @@
             </div>
 
             <div class="m-t-40 text-center">
-                <p class="account-copyright">2018 © Highdmin. - Coderthemes.com</p>
+                <p class="account-copyright">2024 © Kamerinos by Sandra Pinzon</p>
             </div>
 
         </div>

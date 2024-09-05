@@ -91,7 +91,7 @@ File: Main Css File
 }
 
 #topnav .has-submenu.active .submenu li.active > a {
-  color: #02c0ce;
+  color: #db5ac78f;
 }
 
 #topnav .topbar-main .logo {
@@ -158,7 +158,7 @@ File: Main Css File
 }
 
 #topnav .navbar-custom {
-  background-color: #02c0ce;
+  background-color: #db5ac78f;
 }
 
 #topnav .navbar-toggle {
@@ -231,7 +231,7 @@ File: Main Css File
 #topnav .navigation-menu {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding-left: 170px;
 }
 
 #topnav .navigation-menu > li {
@@ -303,7 +303,7 @@ File: Main Css File
   }
   #topnav .navigation-menu > li > ul > li.has-submenu:active > a,
   #topnav .navigation-menu > li > ul > li.has-submenu:hover > a {
-    color: #02c0ce;
+    color: #db5ac78f;
   }
   #topnav .navigation-menu > li .submenu {
     position: absolute;
@@ -1562,15 +1562,15 @@ code {
 }
 
 .btn-custom {
-  background-color: #02c0ce;
-  border-color: #02c0ce;
+  background-color: #db5ac78f;
+  border-color: #db5ac78f;
 }
 
 .btn-custom:hover, .btn-custom:focus, .btn-custom:active, .btn-custom.active,
 .btn-custom.focus, .btn-custom:active, .btn-custom:focus, .btn-custom:hover,
 .open > .dropdown-toggle.btn-custom {
-  background-color: #02a8b5;
-  border: 1px solid #02a8b5;
+  background-color: #7b31708f;
+  border: 1px solid #7b31708f;
 }
 
 .btn-custom.focus, .btn-custom:focus, .btn-outline-custom.focus, .btn-outline-custom:focus,
@@ -2374,8 +2374,8 @@ code {
 }
 
 .checkbox-custom input[type="checkbox"]:checked + label::before {
-  background-color: #02c0ce;
-  border-color: #02c0ce;
+  background-color: #db5ac78f;
+  border-color: #db5ac78f;
 }
 
 .checkbox-custom input[type="checkbox"]:checked + label::after {

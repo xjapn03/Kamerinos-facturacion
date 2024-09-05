@@ -2,14 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>FAC - Kamerinos</title>
+        <title>Inicio - Kamerinos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/formato.png">
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -36,8 +36,8 @@
                         </a> -->
                         <!-- Image Logo -->
                         <a href="index.html" class="logo">
-                            <img src="assets/images/logo_sm.png" alt="" height="26" class="logo-small">
-                            <img src="assets/images/logo.png" alt="" height="22" class="logo-large">
+                            <img src="assets/images/formato1.png" alt="" height="30" class="logo-small">
+                            <img src="assets/images/formato2.png" alt="" height="40" class="logo-large">
                         </a>
 
                     </div>
@@ -59,36 +59,7 @@
                                 </a>
                                 <!-- End mobile menu toggle-->
                             </li>
-                            <li class="dropdown notification-list hide-phone">
-                                <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
-                                   aria-haspopup="false" aria-expanded="false">
-                                    <i class="mdi mdi-earth"></i> English  <i class="mdi mdi-chevron-down"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        Spanish
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        Italian
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        French
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">
-                                        Russian
-                                    </a>
-
-                                </div>
-                            </li>
-
+                            
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
@@ -209,7 +180,7 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1 pro-user-name">Maxine K <i class="mdi mdi-chevron-down"></i> </span>
+                                    <img src="assets/images/users/chica.png" alt="user" class="rounded-circle"> <span class="ml-1 pro-user-name">Maxine K <i class="mdi mdi-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <!-- item-->
