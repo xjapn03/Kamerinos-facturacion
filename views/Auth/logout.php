@@ -23,7 +23,7 @@
     <body>
 
         <!-- Begin page -->
-        <div class="accountbg" style="background: url('assets/images/bg-1.jpg');background-size: cover;"></div>
+        <div class="accountbg" style="background: url('assets/images/bg-1.png');background-size: cover;"></div>
 
         <div class="wrapper-page account-page-full">
 
@@ -35,7 +35,7 @@
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
                                 <a href="index.html" class="text-success">
-                                    <span><img src="assets/images/logo.png" alt="" height="26"></span>
+                                    <span><img src="assets/images/sandra.svg" alt="" height="95"></span>
                                 </a>
                             </h2>
 
@@ -53,14 +53,14 @@
 
                                                     <circle class="spin" fill="none" stroke="#32c861" stroke-width="4" stroke-miterlimit="10" stroke-dasharray="12.2175,12.2175" cx="80.6" cy="80.6" r="73.9"/>
 
-                                                </svg>
+                                            </svg>
 
                                     </div>
                                 </div>
 
-                                <h4>See You Again !</h4>
+                                <h4>¡ Vuelve pronto !</h4>
 
-                                <p class="text-muted font-14 m-t-10"> You are now successfully sign out. Back to <a href="?controller=Welcome&method=inicio" class="text-dark m-r-5"><b>Sign In</b></a></p>
+                                <p class="text-muted font-14 m-t-10"> Sesion Cerrada <br><a href="?controller=Welcome&method=inicio" class="text-dark m-r-5"><b>Iniciar Sesion nuevamente</b></a></p>
                             </div>
 
                         </div>
@@ -70,7 +70,7 @@
             </div>
 
             <div class="m-t-40 text-center">
-                <p class="account-copyright">2018 © Highdmin. - Coderthemes.com</p>
+                <p class="account-copyright">2024 © Kamerinos by Sandra Pinzon</p>
             </div>
 
         </div>

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Login - Kamerinos</title>
+        <title>Iniciar sesion - Kamerinos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -23,7 +23,7 @@
     <body>
 
         <!-- Begin page -->
-        <div class="accountbg" style="background: url('assets/images/fondo.jpg');background-size: cover;"></div>
+        <div class="accountbg" style="background: url('assets/images/bg-1.png');background-size: cover;"></div>
 
         <div class="wrapper-page account-page-full">
 
@@ -35,7 +35,7 @@
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
                                 <a href="index.html" class="text-success">
-                                    <span><img src="assets/images/sandra.svg" alt="" height="120"></span>
+                                    <span><img src="assets/images/sandra.svg" alt="" height="95"></span>
                                 </a>
                             </h2>
 
@@ -58,7 +58,7 @@
                                 <div class="form-group row m-b-20">
                                     <div class="col-12">
                                         <div class="checkbox checkbox-custom">
-                                            <input id="remember" type="checkbox" checked>
+                                            <input id="remember" type="checkbox" unchecked>
                                             <label for="remember">
                                                 Recuerdame
                                             </label>
