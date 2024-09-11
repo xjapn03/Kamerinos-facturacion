@@ -40,7 +40,7 @@
 				<div class="row">
                     <div class="col-12">
                         <div class="card-box">
-                            <h4 class="header-title mb-4">Cómo vamos hoy <br> <b><?php echo date('d-m-Y'); ?></b></h4>
+                            <h4 class="header-title mb-4"><b><?php echo date('d-m-Y'); ?></b></h4>
 
                             <div class="row">
                                 <div class="col-sm-6 col-lg-6 col-xl-3">

@@ -16,26 +16,28 @@ class ServiciosModel {
                             servicios.descripcion, 
                             servicios.duracion, 
                             servicios.precio, 
+                            servicios.fk_categorias_servicios, -- Asegúrate de seleccionar la FK también
                             categorias_servicios.nombre AS nombre_categoria
                        FROM servicios 
                        INNER JOIN categorias_servicios 
                        ON servicios.fk_categorias_servicios = categorias_servicios.id_categoriaS";
-            // Utilizar el método select() de la instancia Database
             return $this->pdo->select($strSql); 
         } catch (PDOException $e) {
             die($e->getMessage());
         }
     }
-
+    
     public function getById($id) {
         try {
             $strSql = "SELECT * FROM servicios WHERE id_servicio = :id";
-            $arrayData = ['id' => $id];
-            return $this->pdo->select($strSql, $arrayData); // Usar método select de Database
+            $stmt = $this->pdo->prepare($strSql);
+            $stmt->execute(['id' => $id]);
+            return $stmt->fetch(PDO::FETCH_OBJ); // Obtener un solo resultado como objeto
         } catch (PDOException $e) {
             die($e->getMessage());
         }
-    }
+    }    
+    
 
     public function newServicio($data) {
         try {

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Inicio - Kamerinos</title>
+        <title>Facturacion - Kamerinos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -176,58 +176,51 @@
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="icon-calender"></i>Citas</a>
-                                <ul class="submenu">
-                                    <li><a href="apps-calendar.html">Calendar</a></li>
+                                <a href="?controller=ventas&method=index"><i class="icon-docs"></i>Ventas</a>
+                                <ul class="submenu megamenu">
+                                    <li>
+                                        <ul>
+                                            <li><a href="extras-timeline.html">Timeline</a></li>
+                                            <li><a href="extras-profile.html">Profile</a></li>
+                                            <li><a href="extras-invoice.html">Invoice</a></li>         
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="icon-user"></i>Empleados</a>
+                                <a href="?controller=citas&method=index"><i class="icon-calender"></i>Citas</a>
+                                <ul class="submenu">
+                                    <li><a href="?controller=citas&method=index">Calendar</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has-submenu">
+                                <a href="?controller=empleado&method=index"><i class="icon-user"></i>Empleados</a>
                                 <ul class="submenu">
                                     <li><a href="apps-calendar.html">Nuevo</a></li>
                                 </ul>
                             </li>
 
                             <li class="has-submenu">
-                                <a href="#"><i class="icon-people"></i>Clientes</a>
+                                <a href="?controller=cliente&method=index"><i class="icon-people"></i>Clientes</a>
                             </li>
 
                             <li class="has-submenu">
                                 <a href="?controller=servicios&method=index"><i class="icon-magic-wand"></i>Servicios</a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="widgets.html">Widgets</a>
+                                        <a href="?controller=categoriaServicios&method=index">Categorias</a>
                                     </li>      
                                 </ul>
                             </li>
 
                             <li class="has-submenu">
                                 <a href="?controller=productos&method=index"><i class="icon-layers"></i>Productos</a>
-                            </li>
-
-                            <li class="has-submenu">
-                                <a href="#"><i class="icon-docs"></i>Facturas</a>
-                                <ul class="submenu megamenu">
+                                <ul class="submenu">
                                     <li>
-                                        <ul>
-                                            <li><a href="extras-timeline.html">Timeline</a></li>
-                                            <li><a href="extras-profile.html">Profile</a></li>
-                                            <li><a href="extras-invoice.html">Invoice</a></li>
-                                            <li><a href="extras-faq.html">FAQ</a></li>
-                                            <li><a href="extras-pricing.html">Pricing</a></li>
-                                            <li><a href="extras-email-template.html">Email Templates</a></li>            
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li><a href="extras-ratings.html">Ratings</a></li>
-                                            <li><a href="extras-search-results.html">Search Results</a></li>
-                                            <li><a href="extras-gallery.html">Gallery</a></li>
-                                            <li><a href="extras-maintenance.html">Maintenance</a></li>
-                                            <li><a href="extras-coming-soon.html">Coming Soon</a></li>            
-                                        </ul>
-                                    </li>
+                                        <a href="?controller=categoriaProductos&method=index">Categorias</a>
+                                    </li>      
                                 </ul>
                             </li>
 
@@ -241,7 +234,7 @@
 
 
         
-        <!-- end wrapper -->
+        <!-- CONTENIDO AQUI-->
 
 
         <!-- Footer -->
@@ -254,7 +247,7 @@
                 </div>
             </div>
         </footer>
-        <!-- End Footer <br> Coded by Juan Peraza, te amo mamá. -->
+        <!-- End Footer -->
 
 
         <!-- jQuery  -->

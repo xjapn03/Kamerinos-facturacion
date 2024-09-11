@@ -1,3 +1,8 @@
+<br>
+<br>
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+
 <h2>Nueva Categoría</h2>
 <form action="?controller=categoriaServicios&method=save" method="POST">
     <label for="nombre_categoria">Nombre:</label>

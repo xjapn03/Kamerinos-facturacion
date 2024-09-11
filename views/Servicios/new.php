@@ -16,7 +16,7 @@
     <label for="id_categoriaS">Categoría:</label>
     <select name="id_categoriaS" required>
         <?php foreach($categorias as $categoria): ?>
-            <option value="<?= $categoria->id_categoriaS ?>"><?= $categoria->nombre_categoria ?></option>
+            <option value="<?= $categoria->id_categoriaS ?>"><?= $categoria->nombre ?></option>
         <?php endforeach; ?>
     </select>
 

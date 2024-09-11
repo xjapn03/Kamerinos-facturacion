@@ -20,12 +20,14 @@ class Categorias_serviciosModel {
     public function getById($id) {
         try {
             $strSql = "SELECT * FROM categorias_servicios WHERE id_categoriaS = :id";
-            $arrayData = ['id' => $id];
-            return $this->pdo->select($strSql, $arrayData);
+            $stmt = $this->pdo->prepare($strSql);
+            $stmt->execute(['id' => $id]);
+            return $stmt->fetch(PDO::FETCH_OBJ); // Cambiado a fetch para obtener un solo resultado como un objeto
         } catch (PDOException $e) {
             die($e->getMessage());
         }
     }
+    
 
     public function newCategoria($data) {
         try {

@@ -18,8 +18,8 @@
     <label for="id_categoriaS">Categoría:</label>
     <select name="id_categoriaS" required>
         <?php foreach($categorias as $categoria): ?>
-            <option value="<?= $categoria->id_categoriaS ?>" <?= $servicio->id_categoriaS == $categoria->id_categoriaS ? 'selected' : '' ?>>
-                <?= $categoria->nombre_categoria ?>
+            <option value="<?= $categoria->id_categoriaS ?>" <?= isset($servicio->fk_categorias_servicios) && $servicio->fk_categorias_servicios == $categoria->id_categoriaS ? 'selected' : '' ?>>
+                <?= $categoria->nombre ?>
             </option>
         <?php endforeach; ?>
     </select>

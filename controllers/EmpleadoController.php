@@ -54,10 +54,15 @@ class EmpleadoController {
             echo "Error, acción no permitida.";    
         }
     }
-
     public function delete()
     {        
-        $this->empleadoModel->deleteUser($_REQUEST);
-        header('Location: ?controller=empleado');
+        if (isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
+            $this->empleadoModel->deleteUser($id);
+            header('Location: ?controller=empleado');
+        } else {
+            echo "Error, no se especificó el ID del usuario a eliminar.";
+        }
     }
+    
 }

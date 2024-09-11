@@ -137,28 +137,6 @@
         var form = '';
         var today = new Date($.now());
 
-        var defaultEvents =  [{
-                title: 'Hey!',
-                start: new Date($.now() + 158000000),
-                className: 'bg-purple'
-            },
-            {
-                title: 'See John Deo',
-                start: today,
-                end: today,
-                className: 'bg-success'
-            },
-            {
-                title: 'Meet John Deo',
-                start: new Date($.now() + 168000000),
-                className: 'bg-info'
-            },
-            {
-                title: 'Buy a Theme',
-                start: new Date($.now() + 338000000),
-                className: 'bg-primary'
-            }];
-
         var $this = this;
         $this.$calendarObj = $this.$calendar.fullCalendar({
             slotDuration: '00:15:00', /* If we want to split day time each 15minutes */
