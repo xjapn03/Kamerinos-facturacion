@@ -35,7 +35,7 @@
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
                                 <a href="index.html" class="text-success">
-                                    <span><img src="assets/images/sandra.svg" alt="" height="95"></span>
+                                    <span><img src="assets/images/sandra.svg" alt="" height="40"></span>
                                 </a>
                             </h2>
 

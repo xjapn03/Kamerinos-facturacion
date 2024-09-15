@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'models/Categorias_productosModel.php';
 
 class CategoriaProductosController {

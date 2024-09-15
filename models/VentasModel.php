@@ -10,9 +10,13 @@ class VentaModel {
     // Método para obtener todas las ventas
     public function getAll() {
         try {
-            $strSql = "SELECT * FROM ventas";
-            $stmt = $this->pdo->query($strSql);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+            $sql = "SELECT v.*, c.nombre AS nombre_cliente, e.nombre AS nombre_empleado 
+                    FROM ventas v 
+                    INNER JOIN clientes c ON v.id_cliente = c.id_cliente
+                    INNER JOIN empleados e ON v.id_empleado = e.id_empleado";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             die($e->getMessage());
         }
@@ -76,5 +80,22 @@ class VentaModel {
             die($e->getMessage());
         }    
     }
+
+    // Método para obtener las ventas del día
+    public function getVentasDelDia() {
+        try {
+            $sql = "SELECT v.*, c.nombre AS nombre_cliente, e.nombre AS nombre_empleado 
+                    FROM ventas v
+                    INNER JOIN clientes c ON v.id_cliente = c.id_cliente
+                    INNER JOIN empleados e ON v.id_empleado = e.id_empleado
+                    WHERE DATE(v.fecha_generacion) = CURDATE()";  // Filtrar ventas por la fecha actual
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+
 }
 ?>

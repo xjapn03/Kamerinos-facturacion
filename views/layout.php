@@ -180,9 +180,8 @@
                                 <ul class="submenu megamenu">
                                     <li>
                                         <ul>
-                                            <li><a href="extras-timeline.html">Timeline</a></li>
-                                            <li><a href="extras-profile.html">Profile</a></li>
-                                            <li><a href="extras-invoice.html">Invoice</a></li>         
+                                            <li><a href="extras-timeline.html">Facturas</a></li>
+                                            <li><a href="?controller=ventasreporte&method=generarPDF">Reportes</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -190,9 +189,6 @@
 
                             <li class="has-submenu">
                                 <a href="?controller=citas&method=index"><i class="icon-calender"></i>Citas</a>
-                                <ul class="submenu">
-                                    <li><a href="?controller=citas&method=index">Calendar</a></li>
-                                </ul>
                             </li>
 
                             <li class="has-submenu">

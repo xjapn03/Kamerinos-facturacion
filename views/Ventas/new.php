@@ -1,7 +1,7 @@
 <br>
 <br>
 <br>
-<br><br><br><br><br><br><br>
+<br><br>
 <div class="container mt-5">
         <h2 class="mb-4">Nueva Venta</h2>
         <form action="?controller=venta&method=save" method="POST">
@@ -24,4 +24,5 @@
             <button type="submit" class="btn btn-success">Guardar</button>
             <a href="?controller=venta" class="btn btn-secondary">Cancelar</a>
         </form>
+        <br><br>
     </div>
