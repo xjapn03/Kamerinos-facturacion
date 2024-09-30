@@ -10,13 +10,6 @@
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/formato.png">
-
-        <!-- App css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-
-        <script src="assets/js/modernizr.min.js"></script>
 </head>
 <body>
 		<div class="wrapper">
@@ -40,7 +33,6 @@
 				<div class="row">
                     <div class="col-12">
                         <div class="card-box">
-                            <h4 class="header-title mb-4"><b><?php echo date('d-m-Y'); ?>
                             <div>
                                 <?php date_default_timezone_set('UTC');?>
                                     <html>
@@ -158,14 +150,10 @@
         </div>
         <!-- end wrapper -->
 
-		<script src="plugins/jquery-knob/jquery.knob.js"></script>
 
-        <!-- Dashboard Init -->
-        <script src="assets/pages/jquery.dashboard.init.js"></script>
+
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
-
+    <script src="assets/js/jquery.core.js"></script>
 </body>
 </html>

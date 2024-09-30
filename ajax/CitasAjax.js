@@ -45,15 +45,17 @@
         var form = $("<form id='event-form'></form>");
         form.append("<div class='row'></div>");
         form.find(".row")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Servicio</label><input class='form-control' placeholder='ID Servicio' type='text' name='id_servicio'/></div></div>")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Cliente</label><input class='form-control' placeholder='ID Cliente' type='text' name='id_cliente'/></div></div>")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Promoción</label><input class='form-control' placeholder='ID Promoción' type='text' name='id_promocion'/></div></div>")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Empleado</label><input class='form-control' placeholder='ID Empleado' type='text' name='id_empleado'/></div></div>")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Fecha</label><input class='form-control' type='datetime-local' name='fecha_cita'/></div></div>")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Abono</label><input class='form-control' placeholder='Abono' type='number' name='abono'/></div></div>")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Estado</label><input class='form-control' placeholder='Estado' type='text' name='estado'/></div></div>")
-            .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Nota</label><textarea class='form-control' placeholder='Nota' name='nota'></textarea></div></div>");
-    
+        .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Servicio</label><select class='form-control' name='id_servicio' id='id_servicio'></select></div></div>")
+        .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Cliente</label><select class='form-control' name='id_cliente' id='id_cliente'></select></div></div>")
+        .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Promoción</label><input class='form-control' placeholder='ID Promoción' type='text' name='id_promocion'/></div></div>")
+        .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Empleado</label><select class='form-control' name='id_empleado' id='id_empleado'></select></div></div>")
+        .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Fecha</label><input class='form-control' type='datetime-local' name='fecha_cita'/></div></div>")
+        .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Abono</label><input class='form-control' placeholder='Abono' type='number' name='abono'/></div></div>")
+        .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Estado</label><select class='form-control' name='estado' id='estado'></select></div></div>")
+        .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Nota</label><textarea class='form-control' placeholder='Nota' name='nota'></textarea></div></div>");
+
+        
+
         // Configurar el modal
         $this.$modal.find('.delete-event').hide()
             .end().find('.save-event').show()

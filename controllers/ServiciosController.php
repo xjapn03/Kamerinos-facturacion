@@ -12,6 +12,14 @@ class ServiciosController {
         $this->categoriaServiciosModel = new Categorias_serviciosModel($db);
     }
 
+
+    public function getAlljson() {
+        header('Content-Type: application/json'); // Asegúrate de que la respuesta tenga el encabezado correcto
+        $servicios = $this->servicioModel->getAll();
+        echo json_encode($servicios); // Devuelve las citas en formato JSON
+        exit; // Finaliza el script para evitar cargar otras vistas o contenido
+    }
+
     public function index() {
         $servicios = $this->servicioModel->getAll();
         require 'views/layout.php';

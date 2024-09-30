@@ -9,6 +9,13 @@ class ClienteController {
         $this->clienteModel = new ClienteModel($db);
     }
 
+    public function getAlljson() {
+        header('Content-Type: application/json'); // Asegúrate de que la respuesta tenga el encabezado correcto
+        $clientes = $this->clienteModel->getAll();
+        echo json_encode($clientes); // Devuelve las citas en formato JSON
+        exit; // Finaliza el script para evitar cargar otras vistas o contenido
+    }
+
     public function index() {
     	$clientes = $this->clienteModel->getAll();
     	require 'views/layout.php';

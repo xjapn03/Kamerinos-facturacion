@@ -25,11 +25,13 @@ class CitasController {
     
 
     // Guardar una nueva cita
-    public function save() {
+    public function create() {
         $data = $_POST; // Recoge los datos enviados por AJAX
         $this->citaModel->createCita($data);
         echo json_encode(['success' => true]);
     }
+
+
 
     // Actualizar una cita existente
     public function update() {
@@ -38,6 +40,11 @@ class CitasController {
         echo json_encode(['success' => true]);
     }
 
+    public function updateFecha() {
+        $data = $_POST; 
+        $this->citaModel->updateFecha($data); // Cambia el método a updateCita
+        echo json_encode(['success' => true]);
+    }
     // Eliminar una cita
     public function delete() {
         $id = $_POST['id_cita'];

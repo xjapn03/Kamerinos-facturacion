@@ -4,7 +4,7 @@
 <br><br>
 <div class="container mt-5">
         <h2 class="mb-4">Nueva Venta</h2>
-        <form action="?controller=venta&method=save" method="POST">
+        <form action="?controller=ventas&method=save" method="POST">
             <div class="form-group">
                 <label for="id_cliente">ID Cliente</label>
                 <input type="number" class="form-control" id="id_cliente" name="id_cliente" required>
@@ -22,7 +22,7 @@
                 <input type="number" step="0.01" class="form-control" id="monto_total" name="monto_total" required>
             </div>
             <button type="submit" class="btn btn-success">Guardar</button>
-            <a href="?controller=venta" class="btn btn-secondary">Cancelar</a>
+            <a href="?controller=ventas&method=index" class="btn btn-secondary">Cancelar</a>
         </form>
         <br><br>
     </div>

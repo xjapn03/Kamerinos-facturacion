@@ -9,6 +9,13 @@ class EmpleadoController {
         $this->empleadoModel = new EmpleadoModel($db);
     }
 
+    public function getAlljson() {
+        header('Content-Type: application/json'); // Asegúrate de que la respuesta tenga el encabezado correcto
+        $empleados = $this->empleadoModel->getAll();
+        echo json_encode($empleados); // Devuelve las citas en formato JSON
+        exit; // Finaliza el script para evitar cargar otras vistas o contenido
+    }
+
     public function index()
     {
     	$users = $this->empleadoModel->getAll();

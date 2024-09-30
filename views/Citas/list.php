@@ -26,107 +26,229 @@
         <!-- end page title end breadcrumb -->
 
         <div class="row">
-            <div class="col-lg-12">
-                <div class="card-box">
+                    <div class="col-lg-12">
 
-                    <div class="col-lg-auto">
-                        <div id="calendar"></div>
-                    </div> <!-- end col -->
-                </div>
-              
+                        <div class="card-box">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <a href="#" data-toggle="modal" data-target="#add-event" class="btn btn-lg btn-custom btn-block waves-effect m-t-20 waves-light">
+                                        <i class="fi-circle-plus"></i> Agendar nueva cita
+                                    </a>
+                                    <a href="#" data-toggle="modal" data-target="#add-category" class="btn btn-lg btn-custom btn-block waves-effect m-t-20 waves-light">
+                                        <i class="fi-circle-plus"></i> Agendar nueva categoria 
+                                    </a>
+                                    <div id="external-events" class="m-t-20">
+                                        <br>
+                                        <p class="text-muted">Haz click en la fecha o arrastra y suelta el evento en el calendario</p>
+                                        <div class="external-event bg-success" data-class="bg-success">
+                                            <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Cepillado | Alisado | Peinado
+                                        </div>
+                                        <div class="external-event bg-info" data-class="bg-info">
+                                            <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Uñas | Acrilicas | Pedicure
+                                        </div>
+                                        <div class="external-event bg-warning" data-class="bg-warning">
+                                            <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Cejas | Limpieza | Facial
+                                        </div>
+                                        <div class="external-event bg-purple" data-class="bg-purple">
+                                            <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Corte simple
+                                        </div>
+                                    </div>
 
-                <!-- BEGIN MODAL -->
-                <div class="modal fade" id="event-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Encabezado del modal -->
-            <div class="modal-header text-center border-bottom-0 d-block">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Añadir/Editar Cita</h4>
-            </div>
+                                    <!-- checkbox -->
+                                    <div class="checkbox checkbox-primary mt-3">
+                                        <input type="checkbox" id="drop-remove">
+                                        <label for="drop-remove">
+                                            Borrar despues de arrastrar
+                                        </label>
+                                    </div>
 
-            <!-- Cuerpo del modal -->
-            <div class="modal-body">
-                <form id="event-form">
-                    <!-- Campo oculto para el ID de la cita -->
-                    <input type="hidden" name="id_cita" id="id_cita">
+                                    <div class="mt-5 d-none d-xl-block">
+                                        <h5 class="text-center">¿ Como funciona ?</h5>
 
-                    <!-- Servicio -->
-                    <div class="form-group">
-                        <label for="id_servicio">Servicio</label>
-                        <input type="text" class="form-control" name="id_servicio" id="id_servicio" required>
+                                        <ul class="pl-3">
+                                            <li class="text-muted mb-3">
+                                                Puedes simplemente oprimir el boton superior, ó seleccionar la fecha en el calendario.
+                                            </li>
+                                            <li class="text-muted mb-3">
+                                                Tambien puedes cambiar la cita cuando quieras! arrastrala o dale click para editarla.
+                                            </li>
+                                            <li class="text-muted mb-3">
+                                                Recuerda verificar los datos, llenar todos los campos si es necesario.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> <!-- end col-->
+                                <div class="col-lg-9">
+                                    <div id="calendar"></div>
+                                </div> <!-- end col -->
+                            </div>  <!-- end row -->
+                        </div>
+
+                        <!-- BEGIN MODAL -->
+                        <div class="modal fade" id="event-modal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center border-bottom-0 d-block">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">Añadir / Editar cita</h4>
+                                    </div>
+                                    <div class="modal-body"></div>
+                                    <div class="modal-footer border-0 pt-0">
+                                        <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-success save-event waves-effect waves-light">Crear</button>
+                                        <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Borrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Add Category -->
+                        <div class="modal fade" id="add-category" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-bottom-0 d-block">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title mt-2">Agregar Cita</h4>
+                                </div>
+                                <div class="modal-body p-4">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Servicio</label>
+                                                    <select class="form-control" name="id_servicio" id="id_servicio"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Cliente</label>
+                                                    <select class="form-control" name="id_cliente" id="id_cliente"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Empleado</label>
+                                                    <select class="form-control" name="id_empleado" id="id_empleado"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Fecha</label>
+                                                    <input class="form-control" type="datetime-local" name="fecha_cita" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Abono</label>
+                                                    <input class="form-control" placeholder="Abono" type="number" name="abono" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Estado</label>
+                                                    <select class="form-control" name="estado" id="estado"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Nota</label>
+                                                    <textarea class="form-control" name="event_description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="text-right">
+                                        <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-custom ml-1 waves-effect waves-light save-category" data-dismiss="modal">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Cliente -->
-                    <div class="form-group">
-                        <label for="id_cliente">Cliente</label>
-                        <input type="text" class="form-control" name="id_cliente" id="id_cliente" required>
+
+                    <div class="modal fade" id="add-event" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header text-center border-bottom-0 d-block">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title mt-2">Agregar Cita</h4>
+                                </div>
+                                <div class="modal-body p-4">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Servicio</label>
+                                                    <select class="form-control" name="id_servicio" id="id_servicio"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Cliente</label>
+                                                    <select class="form-control" name="id_cliente" id="id_cliente"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Empleado</label>
+                                                    <select class="form-control" name="id_empleado" id="id_empleado"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Fecha</label>
+                                                    <input class="form-control" type="datetime-local" name="fecha_cita" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Abono</label>
+                                                    <input class="form-control" placeholder="Abono" type="number" name="abono" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Estado</label>
+                                                    <select class="form-control" name="estado" id="estado"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Nota</label>
+                                                    <textarea class="form-control" name="event_description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="text-right">
+                                        <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-custom ml-1 waves-effect waves-light save-event" data-dismiss="modal">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Promoción -->
-                    <div class="form-group">
-                        <label for="id_promocion">Promoción</label>
-                        <input type="text" class="form-control" name="id_promocion" id="id_promocion">
+
+                        <!-- END MODAL -->
                     </div>
+                    <!-- end col-12 -->
+                </div> <!-- end row -->
 
-                    <!-- Empleado -->
-                    <div class="form-group">
-                        <label for="id_empleado">Empleado</label>
-                        <input type="text" class="form-control" name="id_empleado" id="id_empleado" required>
-                    </div>
-
-                    <!-- Fecha y hora de inicio -->
-                    <div class="form-group">
-                        <label for="fecha_cita">Fecha y Hora</label>
-                        <input type="datetime-local" class="form-control" name="fecha_cita" id="fecha_cita" required>
-                    </div>
-
-                    <!-- Abono -->
-                    <div class="form-group">
-                        <label for="abono">Abono</label>
-                        <input type="number" class="form-control" name="abono" id="abono">
-                    </div>
-
-                    <!-- Estado -->
-                    <div class="form-group">
-                        <label for="estado">Estado</label>
-                        <input type="text" class="form-control" name="estado" id="estado">
-                    </div>
-
-                    <!-- Nota -->
-                    <div class="form-group">
-                        <label for="nota">Nota</label>
-                        <textarea class="form-control" name="nota" id="nota"></textarea>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Pie del modal -->
-            <div class="modal-footer border-0 pt-0">
-                <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success save-event waves-effect waves-light" id="save-event">Guardar</button>
-                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" id="delete-event" style="display:none;">Eliminar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-                <!-- END MODAL -->
-            </div>
-        </div> <!-- end row -->
     </div> <!-- end container -->
 </div>
 <!-- end wrapper -->
 
-<!-- Scripts -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="plugins/moment/moment.js"></script>
-<script src="plugins/fullcalendar/js/fullcalendar.min.js"></script>
-<script src="ajax/CitasAjax.js"></script>
-<!-- <script src="assets/pages/jquery.calendar.js"></script>-->
-<script src="assets/js/jquery.core.js"></script>
-<script src="assets/js/jquery.app.js"></script>
- <!-- Asegúrate de que la ruta sea correcta -->
+        <!-- Jquery-Ui -->
+        <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+
+        <!-- SCRIPTS -->
+        <script src="plugins/moment/moment.js"></script>
+        <script src='plugins/fullcalendar/js/fullcalendar.min.js'></script>
+        <script src="assets/pages/jquery.calendar.js"></script>
+
 </body>
 </html>
