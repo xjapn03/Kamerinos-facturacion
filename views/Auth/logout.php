@@ -9,21 +9,23 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/formato.png">
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
         <script src="assets/js/modernizr.min.js"></script>
 
     </head>
 
-    <body>
+
+    <body class="account-pages">
 
         <!-- Begin page -->
-        <div class="accountbg" style="background: url('assets/images/bg-1.png');background-size: cover;"></div>
+        <div class="accountbg" style="background: url('assets/images/bg-1.jpg');background-size: cover;"></div>
 
         <div class="wrapper-page account-page-full">
 
@@ -35,7 +37,7 @@
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
                                 <a href="index.html" class="text-success">
-                                    <span><img src="assets/images/sandra.svg" alt="" height="95"></span>
+                                    <span><img src="assets/images/sandra.svg" alt="" height="110"></span>
                                 </a>
                             </h2>
 
@@ -53,7 +55,7 @@
 
                                                     <circle class="spin" fill="none" stroke="#32c861" stroke-width="4" stroke-miterlimit="10" stroke-dasharray="12.2175,12.2175" cx="80.6" cy="80.6" r="73.9"/>
 
-                                            </svg>
+                                                </svg>
 
                                     </div>
                                 </div>
@@ -70,7 +72,7 @@
             </div>
 
             <div class="m-t-40 text-center">
-                <p class="account-copyright">2024 © Kamerinos by Sandra Pinzon</p>
+                 <p class="account-copyright">2024 © Kamerinos by Sandra Pinzon</p>
             </div>
 
         </div>
@@ -81,6 +83,7 @@
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/metisMenu.min.js"></script>
         <script src="assets/js/waves.js"></script>
         <script src="assets/js/jquery.slimscroll.js"></script>
 

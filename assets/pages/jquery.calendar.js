@@ -61,6 +61,39 @@
         return `${localDate.getFullYear()}-${(localDate.getMonth() + 1).toString().padStart(2, '0')}-${localDate.getDate().toString().padStart(2, '0')}T${localDate.getHours().toString().padStart(2, '0')}:${localDate.getMinutes().toString().padStart(2, '0')}`;
     },
 
+    
+    CalendarApp.prototype.modalCita = function (start, end, allDay) {
+        // Elimina cualquier listener anterior para evitar duplicación
+        $('#add-event').off('show.bs.modal');
+    
+        // Detecta cuando se abre el modal
+        $('#add-event').one('show.bs.modal', function() {
+            // Selecciona el formulario dentro del modal
+            var $form = $('#add-event').find('form');
+            
+            // Cargar opciones de servicio
+            CalendarApp.prototype.cargarServicios($form.find('#id_servicio'));
+            // Cargar opciones de cliente
+            CalendarApp.prototype.cargarClientes($form.find('#id_cliente'));
+            // Cargar opciones de empleado
+            CalendarApp.prototype.cargarEmpleados($form.find('#id_empleado'));
+            // Cargar opciones de estado
+            CalendarApp.prototype.cargarEstados($form.find('#estado'));
+    
+            // Establece la fecha en el campo de fecha
+            $form.find('input[name="fecha_cita"]').val(start ? start.format('YYYY-MM-DDTHH:mm') : '');
+    
+        });
+    
+        // Detecta cuando se haga clic en el enlace para abrir el modal
+        $('#agendar-cita').on('click', function(e) {
+            e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+            $('#add-event').modal('show'); // Muestra el modal
+        });
+    },
+    
+        
+
     /* on click on event */
     CalendarApp.prototype.onEventClick = function (calEvent, jsEvent, view) {
         var $this = this;
@@ -417,6 +450,7 @@
             }
         });
     },
+
 
     /* Initializing */
     CalendarApp.prototype.init = function() {

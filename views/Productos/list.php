@@ -1,92 +1,121 @@
-<br>
-<br>
-<br>
-<br><br><br><br><br><br>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Productos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h2 {
-            margin-bottom: 20px;
-        }
-        a {
-            text-decoration: none;
-        }
-        .btn-nuevo {
-            display: inline-block;
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 4px;
-        }
-        .btn-editar {
-            color: #007bff;
-            text-decoration: none;
-            margin-right: 10px;
-        }
-        .btn-eliminar {
-            color: #dc3545;
-            text-decoration: none;
-        }
-        .btn-eliminar:hover {
-            text-decoration: underline;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        thead tr {
-            background-color: #f2f2f2;
-            text-align: left;
-        }
-        th, td {
-            padding: 8px;
-            border: 1px solid #ddd;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-    </style>
+    <title>Productos - Kamerinos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App css -->
 </head>
 <body>
-    <h2>Lista de Productos</h2>
-    <a href="?controller=productos&method=new" class="btn-nuevo">Nuevo Producto</a>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th>Categoría</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($productos as $producto): ?>
-            <tr>
-                <td><?= htmlspecialchars($producto->id_producto) ?></td>
-                <td><?= htmlspecialchars($producto->nombre_producto) ?></td>
-                <td>$<?= number_format($producto->precio, 2) ?></td>
-                <td><?= htmlspecialchars($producto->stock) ?></td>
-                <td><?= htmlspecialchars($producto->nombre_categoria) ?></td>
-                <td>
-                    <a href="?controller=productos&method=edit&id=<?= htmlspecialchars($producto->id_producto) ?>" class="btn-editar">Editar</a>
-                    <a href="?controller=productos&method=delete&id=<?= htmlspecialchars($producto->id_producto) ?>" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este producto?');">Eliminar</a>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</body>
+<div class="wrapper">
+            <div class="container-fluid">
+				<!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <div class="btn-group pull-right">
+                                <ol class="breadcrumb hide-phone p-0 m-0">
+                                    <li class="breadcrumb-item"><a href="?controller=Welcome&method=inicio">Inicio</a></li>
+                                    <li class="breadcrumb-item active">Productos</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Productos</h4>
+                        </div>
+                    </div>
+                </div>
+
+
+			<div class="row">
+                <div class="col-12">
+                    <div class="card-box table-responsive">
+                        <h4 class="m-t-0 header-title">Listado de Productos</h4>
+                        <p class="text-muted font-14 m-b-30">
+                            Aquí puedes ver todos los productos disponibles en el salón.
+                        </p>
+                        
+                        <div class="d-flex justify-content-center justify-content-md-start">
+                            <a href="javascript:void(0)" id="nuevoProductoBtn" class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalNuevoProducto">
+                                Nuevo Producto
+                            </a>
+                        </div>
+
+                        <!-- Modal para nuevo producto -->
+                        <div id="modalNuevoProducto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="tituloModalNuevoProducto" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="tituloModalNuevoProducto">Agregar Nuevo Producto</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Formulario para agregar un nuevo producto -->
+                                        <form id="formNuevoProducto">
+                                            <div class="form-group">
+                                                <label for="nombre">Nombre</label>
+                                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="precio">Precio</label>
+                                                <input type="number" class="form-control" id="precio" name="precio" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="stock">Stock</label>
+                                                <input type="number" class="form-control" id="stock" name="stock" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="categoria">Categoría</label>
+                                                <select class="form-control" id="categoria" name="categoria" required>
+                                                    <option value="">Cargando categorías...</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">Guardar Producto</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        </form>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
+                        <table id="responsive-datatable" class="table table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Categoría</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <?php foreach ($productos as $producto): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($producto->id_producto); ?></td>
+                                    <td><?php echo htmlspecialchars($producto->nombre_producto); ?></td>
+                                    <td><?php echo htmlspecialchars($producto->precio, 2); ?></td>
+                                    <td><?php echo htmlspecialchars($producto->stock); ?></td>
+                                    <td><?php echo htmlspecialchars($producto->nombre_categoria); ?></td>
+                                    <td>
+                                        <a href="?controller=productos&method=edit&id=<?php echo $producto->id_producto; ?>" class="btn btn-warning btn-sm">Editar</a>
+                                        <a href="?controller=productos&method=delete&id=<?php echo $producto->id_producto; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este producto?');">Eliminar</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            </div> <!-- end container -->
+        </div>
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <script src="ajax/ajaxProductos.js"></script>
+    </body>
 </html>

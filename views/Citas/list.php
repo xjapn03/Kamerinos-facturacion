@@ -31,7 +31,7 @@
                         <div class="card-box">
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <a href="#" data-toggle="modal" data-target="#add-event" class="btn btn-lg btn-custom btn-block waves-effect m-t-20 waves-light">
+                                    <a href="#" id="agendar-cita" data-toggle="modal" data-target="#add-event" class="btn btn-lg btn-custom btn-block waves-effect m-t-20 waves-light">
                                         <i class="fi-circle-plus"></i> Agendar nueva cita
                                     </a>
                                     <a href="#" data-toggle="modal" data-target="#add-category" class="btn btn-lg btn-custom btn-block waves-effect m-t-20 waves-light">

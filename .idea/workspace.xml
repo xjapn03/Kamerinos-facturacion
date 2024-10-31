@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="724e9ff0-e893-44af-b453-19c443de41ff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/CitasAjax.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/bg-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/bg-1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/bg-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/bg-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/fondo1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/jquery.calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/jquery.calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/datatables/jquery.dataTables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/datatables/jquery.dataTables.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/Auth/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Auth/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/Auth/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Citas/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/Citas/list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Cliente/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/Cliente/list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Empleado/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/Empleado/list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Ventas/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/Ventas/list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,22 +26,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2ldQWcwx69un5HuqcExXplvQtdg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/xampp/htdocs/kamerinos.facturacion"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/kamerinos.facturacion&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

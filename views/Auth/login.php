@@ -14,16 +14,18 @@
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
         <script src="assets/js/modernizr.min.js"></script>
 
     </head>
 
-    <body>
+
+    <body class="account-pages">
 
         <!-- Begin page -->
-        <div class="accountbg" style="background: url('assets/images/bg-1.png');background-size: cover;"></div>
+        <div class="accountbg" style="background: url('assets/images/fondo.jpg');background-size: cover;"></div>
 
         <div class="wrapper-page account-page-full">
 
@@ -35,7 +37,7 @@
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
                                 <a href="index.html" class="text-success">
-                                    <span><img src="assets/images/sandra.svg" alt="" height="40"></span>
+                                    <span><img src="assets/images/sandra.svg" alt="" height="110"></span>
                                 </a>
                             </h2>
 
@@ -73,6 +75,7 @@
                                 </div>
                             </form>
 
+
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
                                     <p class="text-muted">¿No tienes cuenta? <a href="page-register.html" class="text-dark m-l-5"><b>Solicitala</b></a></p>
@@ -86,16 +89,18 @@
             </div>
 
             <div class="m-t-40 text-center">
-                <p class="account-copyright">2024 © Kamerinos by Sandra Pinzon</p>
+                  <p class="account-copyright">2024 © Kamerinos by Sandra Pinzon</p>
             </div>
 
         </div>
+
 
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/metisMenu.min.js"></script>
         <script src="assets/js/waves.js"></script>
         <script src="assets/js/jquery.slimscroll.js"></script>
 

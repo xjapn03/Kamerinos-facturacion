@@ -366,7 +366,7 @@ File: Main Css File
     transition: all .35s ease;
   }
   #topnav .navigation-menu > li .submenu li a:hover {
-    color: #02c0ce;
+    color: #db5ac78f;
   }
   #topnav .navigation-menu > li .submenu li span {
     display: block;
@@ -430,7 +430,7 @@ File: Main Css File
     color: #313a46;
   }
   #topnav .navigation-menu > li .submenu li a:hover {
-    color: #02c0ce;
+    color: #db5ac78f;
   }
   #topnav .navigation-menu > li .submenu li.has-submenu > a:after {
     content: "\F140";
@@ -462,7 +462,7 @@ File: Main Css File
     color: #313a46;
   }
   #topnav .navigation-menu > li.has-submenu.open > a {
-    color: #02c0ce;
+    color: #db5ac78f;
   }
   #topnav .navbar-header {
     float: left;
@@ -485,10 +485,10 @@ File: Main Css File
     overflow-y: auto;
   }
   #topnav .has-submenu.active a {
-    color: #02c0ce;
+    color: #db5ac78f;
   }
   #topnav .has-submenu.active a:active, #topnav .has-submenu.active a:focus, #topnav .has-submenu.active a i {
-    color: #02c0ce;
+    color: #db5ac78f;
   }
 }
 
@@ -1009,7 +1009,7 @@ a:focus {
 }
 
 .icon-list-demo .col-md-4:hover, .icon-list-demo .col-md-4:hover i {
-  color: #02c0ce;
+  color: #db5ac78f;
 }
 
 .social-links li a {
@@ -1050,7 +1050,7 @@ a:focus {
 }
 
 code {
-  color: #02c0ce;
+  color: #db5ac78f;
 }
 
 /* Blockquote */
@@ -1339,8 +1339,8 @@ code {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus,
 .page-item.active .page-link {
-  background: #02c0ce;
-  border-color: #02c0ce;
+  background: #db5ac78f;
+  border-color: #db5ac78f;
 }
 
 .pager li > a, .pager li > span {

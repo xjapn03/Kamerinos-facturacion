@@ -38,11 +38,21 @@ class ProductosModel {
 
     public function newProducto($data) {
         try {
-            $this->pdo->insert('productos', $data); // Usar método insert de Database
+            // Ajustar las claves del array para que coincidan con las columnas de la tabla
+            $dataInsert = [
+                'nombre_producto' => $data['nombre'],
+                'descripcion' => isset($data['descripcion']) ? $data['descripcion'] : null, // Asegura que haya un valor, aunque sea null
+                'stock' => $data['stock'],
+                'precio' => $data['precio'],
+                'fk_categorias_productos' => $data['categoria']
+            ];
+    
+            // Insertar el producto en la tabla 'productos'
+            $this->pdo->insert('productos', $dataInsert);
         } catch (PDOException $e) {
-            die($e->getMessage());
+            die("Error al insertar: " . $e->getMessage());
         }
-    }
+    }    
 
     public function editProducto($data) {
         try {
@@ -53,13 +63,15 @@ class ProductosModel {
         }
     }
 
-    public function deleteProducto($id) {
-        try {
-            $strWhere = 'id_producto = ' . $id;
-            $this->pdo->delete('productos', $strWhere); // Usar método delete de Database
+    public function deleteProducto($id)
+    {
+        try {            
+            $strSql = "DELETE FROM productos WHERE id_producto = :id";
+            $stmt = $this->pdo->prepare($strSql);
+            $stmt->execute(['id' => $id]);
         } catch (PDOException $e) {
             die($e->getMessage());
-        }
+        }    
     }
 }
 ?>

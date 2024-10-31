@@ -67,7 +67,7 @@ class ServiciosModel {
     }    
     
 
-    public function newServicio($data) {
+    public function new($data) {
         try {
             $this->pdo->insert('servicios', $data); // Usar método insert de Database
         } catch (PDOException $e) {
@@ -75,7 +75,7 @@ class ServiciosModel {
         }
     }
 
-    public function editServicio($data) {
+    public function edit($data) {
         try {
             $strWhere = 'id_servicio = ' . $data['id_servicio'];
             $this->pdo->update('servicios', $data, $strWhere); // Usar método update de Database
@@ -84,7 +84,7 @@ class ServiciosModel {
         }
     }
 
-    public function deleteServicio($id) {
+    public function delete($id) {
         try {
             $strWhere = 'id_servicio = ' . $id;
             $this->pdo->delete('servicios', $strWhere); // Usar método delete de Database

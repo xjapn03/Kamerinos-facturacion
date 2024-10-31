@@ -19,9 +19,27 @@ class ProductosController {
     }
 
     public function new() {
-        $categorias = $this->categoriaProductosModel->getAll();
         require 'views/layout.php';
         require 'views/Productos/new.php';
+    }
+
+
+
+    public function newAjax() {
+        $categorias = $this->categoriaProductosModel->getAll(); // Obtiene solo las categorías
+        ob_start(); // Inicia el buffer de salida
+        require 'views/Productos/new.php'; // Carga el formulario con las categorías
+        $formHtml = ob_get_clean(); // Captura el HTML del formulario
+        echo json_encode(['formHtml' => $formHtml]); // Envía el HTML en JSON
+    }
+    
+    
+
+    public function getAlljson() {
+        header('Content-Type: application/json'); // Asegúrate de que la respuesta tenga el encabezado correcto
+        $productos = $this->productoModel->getAll();
+        echo json_encode($producto); // Devuelve las citas en formato JSON
+        exit; // Finaliza el script para evitar cargar otras vistas o contenido
     }
 
     public function save() {
@@ -50,9 +68,15 @@ class ProductosController {
         }
     }
 
-    public function delete() {
-        $this->productoModel->deleteProducto($_REQUEST['id']);
-        header('Location: ?controller=producto');
+    public function delete()
+    {        
+        if (isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
+            $this->productoModel->deleteProducto($id);
+            header('Location: ?controller=productos&method=index');
+        } else {
+            echo "Error, no se especificó el ID del usuario a eliminar.";
+        }
     }
 }
 ?>
