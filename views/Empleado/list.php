@@ -44,6 +44,9 @@
                             <thead>
                             <tr>
                                 <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Telefono</th>
+                                <th>Direccion</th>
                                 <th>Email</th>
                                 <th>Rol</th>
                                 <th>Acciones</th>
@@ -55,6 +58,9 @@
                                 <?php foreach ($users as $user): ?>
                                     <tr>
                                         <td><?= htmlspecialchars($user['nombre']) ?></td>
+                                        <td><?= htmlspecialchars($user['apellido']) ?></td>
+                                        <td><?= htmlspecialchars($user['telefono']) ?></td>
+                                        <td><?= htmlspecialchars($user['direccion']) ?></td>
                                         <td><?= htmlspecialchars($user['email']) ?></td>
                                         <td><?= htmlspecialchars($user['nombre_rol']) ?></td>
                                         <td>

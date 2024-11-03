@@ -24,7 +24,7 @@ class EmpleadoModel {
 public function getAll()
 {
     try {    		
-        $strSql = "SELECT empleados.id_empleado, empleados.nombre, empleados.apellido, empleados.email, roles.nombre_rol as nombre_rol
+        $strSql = "SELECT empleados.id_empleado, empleados.nombre, empleados.apellido, empleados.telefono, empleados.direccion, empleados.email, roles.nombre_rol as nombre_rol
                     FROM empleados
                     INNER JOIN roles ON empleados.id_rol = roles.id_rol";
         

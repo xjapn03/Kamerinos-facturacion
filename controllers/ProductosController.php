@@ -50,14 +50,25 @@ class ProductosController {
     public function edit() {
         if (isset($_REQUEST['id'])) {
             $id = $_REQUEST['id'];
+            
+            // Obtener el producto y las categorías desde el modelo
             $producto = $this->productoModel->getById($id);
             $categorias = $this->categoriaProductosModel->getAll();
-            require 'views/layout.php';
-            require 'views/Productos/edit.php';
+            
+            if ($producto) {
+                // Enviar el producto como un objeto, no un array
+                echo json_encode([
+                    'producto' => $producto[0],  // Asegurarte de enviar el primer elemento del array
+                    'categorias' => $categorias
+                ]);
+            } else {
+                echo json_encode(['error' => 'El producto no existe']);
+            }
         } else {
-            echo "El producto no existe";
+            echo json_encode(['error' => 'ID de producto no especificado']);
         }
-    }
+    }    
+    
 
     public function update() {
         if (isset($_POST)) {

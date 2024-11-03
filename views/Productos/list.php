@@ -100,12 +100,47 @@
                                     <td><?php echo htmlspecialchars($producto->stock); ?></td>
                                     <td><?php echo htmlspecialchars($producto->nombre_categoria); ?></td>
                                     <td>
-                                        <a href="?controller=productos&method=edit&id=<?php echo $producto->id_producto; ?>" class="btn btn-warning btn-sm">Editar</a>
-                                        <a href="?controller=productos&method=delete&id=<?php echo $producto->id_producto; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este producto?');">Eliminar</a>
+                                    <a href="javascript:void(0)" class="btn btn-warning btn-sm btn-editar-producto" data-id="<?php echo $producto->id_producto; ?>" data-toggle="modal" data-target="#modalEditarProducto">Editar</a>
+                                    <a href="?controller=productos&method=delete&id=<?php echo $producto->id_producto; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este producto?');">Eliminar</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                             </tbody>
+                            <div id="modalEditarProducto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="tituloModalEditarProducto" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title" id="tituloModalEditarProducto">Editar Producto</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- Formulario para agregar un nuevo producto -->
+                                                    <form id="formEditarProducto">
+                                                        <div class="form-group">
+                                                            <label for="nombre">Nombre</label>
+                                                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="precio">Precio</label>
+                                                            <input type="number" class="form-control" id="precio" name="precio" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="stock">Stock</label>
+                                                            <input type="number" class="form-control" id="stock" name="stock" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="categoria">Categoría</label>
+                                                            <select class="form-control" id="categoria" name="categoria" required>
+                                                                <option value="">Cargando categorías...</option>
+                                                            </select>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-success">Guardar Producto</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
                         </table>
                     </div>
                 </div>
@@ -114,8 +149,6 @@
 
             </div> <!-- end container -->
         </div>
-        <script src="assets/js/bootstrap.min.js"></script>
-
         <script src="ajax/ajaxProductos.js"></script>
     </body>
 </html>

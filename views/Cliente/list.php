@@ -66,8 +66,12 @@
                                             <td><center><?= htmlspecialchars($cliente['fecha_nacimiento']) ?></center></td>
                                             <td><?= htmlspecialchars($cliente['fecha_registro']) ?></td>
                                             <td>
+                                                <a href="?controller=cliente&method=####=<?= urlencode($cliente['id_cliente']) ?>" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-file-archive-o"></i>
+                                                </a>
                                                 <a href="?controller=cliente&method=edit&id=<?= urlencode($cliente['id_cliente']) ?>" class="btn btn-warning btn-sm">Editar</a>
                                                 <a href="?controller=cliente&method=delete&id=<?= urlencode($cliente['id_cliente']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este cliente?');">Eliminar</a>
+                                                
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
