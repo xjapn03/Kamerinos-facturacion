@@ -71,7 +71,7 @@
                                                     <option value="">Cargando categorías...</option>
                                                 </select>
                                             </div>
-                                            <button type="submit" class="btn btn-success">Guardar Producto</button>
+                                            <button type="submit" class="btn btn-success">Crear</button>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                         </form>
                                     </div>
@@ -100,7 +100,17 @@
                                     <td><?php echo htmlspecialchars($producto->stock); ?></td>
                                     <td><?php echo htmlspecialchars($producto->nombre_categoria); ?></td>
                                     <td>
-                                    <a href="javascript:void(0)" class="btn btn-warning btn-sm btn-editar-producto" data-id="<?php echo $producto->id_producto; ?>" data-toggle="modal" data-target="#modalEditarProducto">Editar</a>
+                                    <a href="javascript:void(0)" 
+                                        class="btn btn-warning btn-sm btn-editar-Producto" 
+                                        data-toggle="modal" 
+                                        data-target="#modalEditarProducto"
+                                        data-id="<?php echo $producto->id_producto; ?>"
+                                        data-nombre="<?php echo $producto->nombre_producto; ?>"
+                                        data-precio="<?php echo $producto->precio; ?>"
+                                        data-stock="<?php echo $producto->stock; ?>"
+                                        data-categoria="<?php echo $producto->fk_categorias_productos; ?>"> <!-- Clave correcta -->
+                                        Editar
+                                    </a>
                                     <a href="?controller=productos&method=delete&id=<?php echo $producto->id_producto; ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de eliminar este producto?');">Eliminar</a>
                                     </td>
                                 </tr>
@@ -116,6 +126,7 @@
                                                 <div class="modal-body">
                                                     <!-- Formulario para agregar un nuevo producto -->
                                                     <form id="formEditarProducto">
+                                                        <input type="hidden" id="id_producto" name="id_producto">
                                                         <div class="form-group">
                                                             <label for="nombre">Nombre</label>
                                                             <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -130,11 +141,11 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="categoria">Categoría</label>
-                                                            <select class="form-control" id="categoria" name="categoria" required>
+                                                            <select class="form-control" id="categoriaEditar" name="categoria" required>
                                                                 <option value="">Cargando categorías...</option>
                                                             </select>
                                                         </div>
-                                                        <button type="submit" class="btn btn-success">Guardar Producto</button>
+                                                        <button type="submit" class="btn btn-success">Guardar</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                     </form>
                                                 </div>

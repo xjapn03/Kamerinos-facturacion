@@ -29,26 +29,48 @@ class ClienteController {
 
     public function save() {    
         $this->clienteModel->newCliente($_POST);
-        header('Location: ?controller=cliente');
+        header('Location: ?controller=cliente&method=index');
     }
 
+
     public function edit() {
-        if(isset($_REQUEST['id'])) {
-            $id = $_REQUEST['id'];
+        if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
+            $id = intval($_REQUEST['id']); // Asegúrate de que el ID sea un entero válido
+            
+            // Obtener el cliente desde el modelo
             $cliente = $this->clienteModel->getById($id);
-            require 'views/layout.php';
-            require 'views/Cliente/edit.php';
+            
+            // Validar que se encontró el cliente
+            if ($cliente) {
+                header('Content-Type: application/json'); // Encabezado JSON
+                echo json_encode($cliente);
+            } else {
+                http_response_code(404); // Establecer código de respuesta HTTP 404
+                header('Content-Type: application/json'); // Encabezado JSON
+                echo json_encode(['error' => 'El cliente no existe']);
+            }
         } else {
-            echo "El Cliente No Existe";
+            http_response_code(400); // Establecer código de respuesta HTTP 400
+            header('Content-Type: application/json'); // Encabezado JSON
+            echo json_encode(['error' => 'ID de cliente no especificado o inválido']);
         }
     }
 
+
     public function update() {
-        if(isset($_POST)) {
+        if (isset($_POST)) {
+            // Verifica si 'id_producto' está presente, de lo contrario lanza un error
+            if (!isset($_POST['id_cliente']) || empty($_POST['id_cliente'])) {
+                die("Error: ID del cliente no proporcionado.");
+            }
+    
+            // Llama al modelo para actualizar el servicio
             $this->clienteModel->editCliente($_POST);
-            header('Location: ?controller=cliente');
+    
+            // Redirige después de la actualización
+            header('Location: ?controller=cliente&action=index');
         } else {
-            echo "Error, acción no permitida.";    
+            echo "Error, acción no permitida.";
         }
     }
 

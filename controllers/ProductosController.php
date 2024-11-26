@@ -49,31 +49,42 @@ class ProductosController {
 
     public function edit() {
         if (isset($_REQUEST['id'])) {
-            $id = $_REQUEST['id'];
+            $id = intval($_REQUEST['id']); // Asegúrate de que el ID sea un entero válido
             
             // Obtener el producto y las categorías desde el modelo
             $producto = $this->productoModel->getById($id);
             $categorias = $this->categoriaProductosModel->getAll();
             
-            if ($producto) {
-                // Enviar el producto como un objeto, no un array
+            // Validar que se encontró el producto
+            if ($producto && count($producto) > 0) {
+                header('Content-Type: application/json'); // Encabezado JSON
                 echo json_encode([
-                    'producto' => $producto[0],  // Asegurarte de enviar el primer elemento del array
-                    'categorias' => $categorias
+                    'producto' => $producto[0],  // Envía el primer elemento
+                    'categorias' => $categorias ?: [] // Asegúrate de que sea un array
                 ]);
             } else {
+                header('Content-Type: application/json'); // Encabezado JSON
                 echo json_encode(['error' => 'El producto no existe']);
             }
         } else {
+            header('Content-Type: application/json'); // Encabezado JSON
             echo json_encode(['error' => 'ID de producto no especificado']);
         }
-    }    
-    
+    }
+      
 
     public function update() {
         if (isset($_POST)) {
+            // Verifica si 'id_producto' está presente, de lo contrario lanza un error
+            if (!isset($_POST['id_producto']) || empty($_POST['id_producto'])) {
+                die("Error: ID del servicio no proporcionado.");
+            }
+    
+            // Llama al modelo para actualizar el servicio
             $this->productoModel->editProducto($_POST);
-            header('Location: ?controller=producto');
+    
+            // Redirige después de la actualización
+            header('Location: ?controller=productos&action=index');
         } else {
             echo "Error, acción no permitida.";
         }

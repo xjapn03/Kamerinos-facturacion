@@ -51,16 +51,25 @@ class ServiciosController {
 
     public function update() {
         if (isset($_POST)) {
+            // Verifica si 'id_servicio' está presente, de lo contrario lanza un error
+            if (!isset($_POST['id_servicio']) || empty($_POST['id_servicio'])) {
+                die("Error: ID del servicio no proporcionado.");
+            }
+    
+            // Llama al modelo para actualizar el servicio
             $this->servicioModel->editServicio($_POST);
-            header('Location: ?controller=servicio');
+    
+            // Redirige después de la actualización
+            header('Location: ?controller=servicios&action=index');
         } else {
             echo "Error, acción no permitida.";
         }
     }
+    
 
     public function delete() {
         $this->servicioModel->deleteServicio($_REQUEST['id']);
-        header('Location: ?controller=servicio');
+        header('Location: ?controller=servicios&action=index');
     }
 }
 ?>

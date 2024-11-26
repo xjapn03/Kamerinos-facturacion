@@ -15,6 +15,15 @@ class CategoriaServiciosController {
         require 'views/Servicios/CategoriaServicios/list.php';
     }
 
+    public function cargarCategorias() {
+        try {
+            $categorias = $this->categoriaServiciosModel->getAll();
+            echo json_encode($categorias); // Devuelve las categorías en formato JSON
+        } catch (PDOException $e) {
+            echo json_encode(['error' => $e->getMessage()]); // Manejo de errores
+        }
+    }  
+
     public function new() {
         require 'views/layout.php';
         require 'views/Servicios/CategoriaServicios/new.php';

@@ -26,6 +26,7 @@ class ProductosModel {
         }
     }
 
+
     public function getById($id) {
         try {
             $strSql = "SELECT * FROM productos WHERE id_producto = :id";
@@ -54,12 +55,48 @@ class ProductosModel {
         }
     }    
 
+
     public function editProducto($data) {
         try {
-            $strWhere = 'id_producto = ' . $data['id_producto'];
-            $this->pdo->update('productos', $data, $strWhere); // Usar método update de Database
-        } catch (PDOException $e) {
-            die($e->getMessage());
+            // Validación básica de campos requeridos
+            if (!isset($data['id_producto']) || empty($data['id_producto'])) {
+                throw new Exception("ID del producto es obligatorio para actualizar.");
+            }
+            
+            // Preparar los campos para la consulta
+            $id_producto = (int)$data['id_producto']; // Asegurar que sea entero
+            $nombre_producto = $data['nombre'];
+            $precio = $data['precio'];
+            $stock = (int)$data['stock']; // Asegurar que sea entero
+            $categoria = (int)$data['categoria']; // Asegurar que sea entero
+    
+            // Crear la consulta SQL
+            $sql = "UPDATE productos 
+                    SET 
+                        nombre_producto = :nombre_producto,
+                        precio = :precio,
+                        stock = :stock,
+                        fk_categorias_productos = :categoria
+                    WHERE id_producto = :id_producto";
+    
+            // Preparar y ejecutar la consulta
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
+                ':nombre_producto' => $nombre_producto,
+                ':precio' => $precio,
+                ':stock' => $stock,
+                ':categoria' => $categoria,
+                ':id_producto' => $id_producto,
+            ]);
+    
+            // Confirmar si se realizó alguna actualización
+            if ($stmt->rowCount() > 0) {
+                return true;
+            } else {
+                throw new Exception("No se realizó ningún cambio en el producto.");
+            }
+        } catch (Exception $e) {
+            die("Error al actualizar el producto: " . $e->getMessage());
         }
     }
 

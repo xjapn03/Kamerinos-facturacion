@@ -22,7 +22,9 @@ class CategoriaProductosController {
         } catch (PDOException $e) {
             echo json_encode(['error' => $e->getMessage()]); // Manejo de errores
         }
-    }    
+    }  
+    
+    
 
     public function new() {
         require 'views/layout.php';

@@ -64,6 +64,9 @@
                                         <td><?= htmlspecialchars($user['email']) ?></td>
                                         <td><?= htmlspecialchars($user['nombre_rol']) ?></td>
                                         <td>
+                                            <a href="?controller=documentosEmpleado&action=index&id_empleado=<?= urlencode($user['id_empleado']) ?>" class="btn btn-primary btn-sm">
+                                               <i class="fa fa-file-archive-o"></i>
+                                            </a>
                                             <a href="?controller=empleado&method=edit&id=<?= urlencode($user['id_empleado']) ?>" class="btn btn-warning btn-sm">Editar</a>
                                             <a href="?controller=empleado&method=delete&id=<?= urlencode($user['id_empleado']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este usuario?');">Eliminar</a>
                                         </td>

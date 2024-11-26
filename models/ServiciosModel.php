@@ -67,24 +67,73 @@ class ServiciosModel {
     }    
     
 
-    public function new($data) {
+    public function newServicio($data) {
         try {
-            $this->pdo->insert('servicios', $data); // Usar método insert de Database
+            // Ajustar las claves del array para que coincidan con las columnas de la tabla
+            $dataInsert = [
+                'nombre_servicio' => $data['nombre'],
+                'descripcion' => isset($data['descripcion']) ? $data['descripcion'] : null, // Asegura que haya un valor, aunque sea null
+                'duracion' => $data['duracion'],
+                'precio' => $data['precio'],
+                'fk_categorias_servicios' => $data['categoria']
+            ];
+    
+            // Insertar el producto en la tabla 'productos'
+            $this->pdo->insert('servicios', $dataInsert);
         } catch (PDOException $e) {
-            die($e->getMessage());
+            die("Error al insertar: " . $e->getMessage());
         }
     }
 
-    public function edit($data) {
+    public function editServicio($data) {
         try {
-            $strWhere = 'id_servicio = ' . $data['id_servicio'];
-            $this->pdo->update('servicios', $data, $strWhere); // Usar método update de Database
-        } catch (PDOException $e) {
-            die($e->getMessage());
+            // Validación básica de campos requeridos
+            if (!isset($data['id_servicio']) || empty($data['id_servicio'])) {
+                throw new Exception("ID del servicio es obligatorio para actualizar.");
+            }
+            
+            // Preparar los campos para la consulta
+            $id_servicio = (int)$data['id_servicio']; // Asegurar que sea entero
+            $nombre_servicio = $data['nombre'];
+            $precio = $data['precio'];
+            $duracion = (int)$data['duracion']; // Asegurar que sea entero
+            $descripcion = $data['descripcion'];
+            $categoria = (int)$data['categoria']; // Asegurar que sea entero
+    
+            // Crear la consulta SQL
+            $sql = "UPDATE servicios 
+                    SET 
+                        nombre_servicio = :nombre_servicio,
+                        precio = :precio,
+                        duracion = :duracion,
+                        descripcion = :descripcion,
+                        fk_categorias_servicios = :categoria
+                    WHERE id_servicio = :id_servicio";
+    
+            // Preparar y ejecutar la consulta
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
+                ':nombre_servicio' => $nombre_servicio,
+                ':precio' => $precio,
+                ':duracion' => $duracion,
+                ':descripcion' => $descripcion,
+                ':categoria' => $categoria,
+                ':id_servicio' => $id_servicio,
+            ]);
+    
+            // Confirmar si se realizó alguna actualización
+            if ($stmt->rowCount() > 0) {
+                return true;
+            } else {
+                throw new Exception("No se realizó ningún cambio en el servicio.");
+            }
+        } catch (Exception $e) {
+            die("Error al actualizar el servicio: " . $e->getMessage());
         }
     }
+    
 
-    public function delete($id) {
+    public function deleteServicio($id) {
         try {
             $strWhere = 'id_servicio = ' . $id;
             $this->pdo->delete('servicios', $strWhere); // Usar método delete de Database
