@@ -12,7 +12,7 @@ Los cambios deben hacerse siempre en la rama **`ramaPrueba`** del proyecto.
 - **XAMPP** (preferentemente) con **MySQL**
 - **PHP 8.2.18**  
 - Editor de código recomendado: **VSCode**
-- **Base de datos**: Importar el archivo `sandrea1.sql` para la base de datos
+- **Base de datos**: Importar el archivo `sandra1.sql` para la base de datos (db/ sandra1.sql)
 - **Debugging**: Usar **Firefox** para depuración, pero **priorizar la compatibilidad con Chrome y Safari**
 - Uso de **Composer** y, en el futuro, **Laravel** para migraciones
 
