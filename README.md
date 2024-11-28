@@ -108,6 +108,14 @@ El archivo `index.php` se encarga de **redirigir** las solicitudes al controlado
 2. **Compatibilidad de Navegadores**: Aunque se recomienda hacer pruebas en **Firefox**, se debe priorizar la compatibilidad con **Chrome** y **Safari**, ya que son los navegadores más utilizados.
 
 ---
+## 📅 **CREDENCIAL DE ACCESO**
+
+user: juan.peraza@donmaiz.com
+pass: 1000240844
+
+Toca resolver tambien que al crear un  uveo empleado (usuario) este le permita en el form elegir su contraseña, y que esta se hashee al hacer el insert en la base de datos.
+
+
 
 **¡Solo el que codea gana billete!**  
 ¡La buena y a programar!
