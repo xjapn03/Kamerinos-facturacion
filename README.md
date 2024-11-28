@@ -104,10 +104,10 @@ El archivo `index.php` se encarga de **redirigir** las solicitudes al controlado
 
 ## 📅 **Notas Adicionales**
 
-1. **Desarrollo del módulo de ventas**: En el futuro, se integrará un módulo de ventas completo para permitir la venta de productos y servicios, lo que incluirá la modificación de ciertas estructuras del proyecto.
+1. **Desarrollo del módulo de ventas**: Se integrará el módulo de ventas completo para permitir la venta de productos y servicios, lo que incluirá la modificación de ajaxVentas.js del proyecto, permitiendo un formulario de venta dinamico.
 2. **Compatibilidad de Navegadores**: Aunque se recomienda hacer pruebas en **Firefox**, se debe priorizar la compatibilidad con **Chrome** y **Safari**, ya que son los navegadores más utilizados.
 
 ---
 
 **¡Solo el que codea gana billete!**  
-¡Saludos y a programar!
+¡La buena y a programar!
