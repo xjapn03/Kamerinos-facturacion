@@ -299,7 +299,6 @@
         <script src="plugins/datatables/dataTables.select.min.js"></script>
 
         <!-- Dashboard Init -->
-        <script src="assets/pages/jquery.dashboard.init.js"></script>
 
         <!-- App js -->
         <script src="ajax/dataTables.js"></script>

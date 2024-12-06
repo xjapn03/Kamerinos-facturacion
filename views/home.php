@@ -9,7 +9,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/formato.png">
 </head>
 <body>
 		<div class="wrapper">
@@ -79,67 +78,7 @@
                                     </html>
                             </div></b></h4>  
                                             
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-6 col-xl-3">
-                                    <div class="card-box mb-0 widget-chart-two">
-                                        <div class="float-right">
-                                            <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
-                                                   data-fgColor="#0acf97" value="37" data-skin="tron" data-angleOffset="180"
-                                                   data-readOnly=true data-thickness=".1"/>
-                                        </div>
-                                        <div class="widget-chart-two-content">
-                                            <p class="text-muted mb-0 mt-2">Ventas mes</p>
-                                            <h3 class="">$35,715</h3>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-lg-6 col-xl-3">
-                                    <div class="card-box mb-0 widget-chart-two">
-                                        <div class="float-right">
-                                            <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
-                                                   data-fgColor="#f9bc0b" value="92" data-skin="tron" data-angleOffset="180"
-                                                   data-readOnly=true data-thickness=".1"/>
-                                        </div>
-                                        <div class="widget-chart-two-content">
-                                            <p class="text-muted mb-0 mt-2">Sales Analytics</p>
-                                            <h3 class="">$97,511</h3>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-lg-6 col-xl-3">
-                                    <div class="card-box mb-0 widget-chart-two">
-                                        <div class="float-right">
-                                            <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
-                                                   data-fgColor="#f1556c" value="14" data-skin="tron" data-angleOffset="180"
-                                                   data-readOnly=true data-thickness=".1"/>
-                                        </div>
-                                        <div class="widget-chart-two-content">
-                                            <p class="text-muted mb-0 mt-2">Statistics</p>
-                                            <h3 class="">$954</h3>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-lg-6 col-xl-3">
-                                    <div class="card-box mb-0 widget-chart-two">
-                                        <div class="float-right">
-                                            <input data-plugin="knob" data-width="80" data-height="80" data-linecap=round
-                                                   data-fgColor="#2d7bf4" value="60" data-skin="tron" data-angleOffset="180"
-                                                   data-readOnly=true data-thickness=".1"/>
-                                        </div>
-                                        <div class="widget-chart-two-content">
-                                            <p class="text-muted mb-0 mt-2">Total Revenue</p>
-                                            <h3 class="">$32,540</h3>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <!-- end row -->
                         </div>
                     </div>
@@ -154,6 +93,5 @@
 
 
         <!-- App js -->
-    <script src="assets/js/jquery.core.js"></script>
 </body>
 </html>
